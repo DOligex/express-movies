@@ -2,8 +2,10 @@
 
 body {
     font-family: Consolas,Monaco,"Andale Mono",monospace;
-    background-image: linear-gradient();
+    background-image: linear-gradient(red, black);
     color: black;
+    width: auto;
+    min-height: 1000px;
 }
 
 input:focus {
@@ -17,5 +19,16 @@ input:focus {
 a {
     text-decoration: none;
     cursor: pointer;
+    color: dimgray;
+}
+.header {
+    width: 100%;
+    color: dimgrey;
+}
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
     color: darkgrey;
+    text-align: center;
 }
