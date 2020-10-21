@@ -1,6 +1,9 @@
-<hr>
-<p>Copyright : 2020 DOligex (depuis un partial)</p>
-
+<div class="footer">
+    
+    <hr>
+    <p class="copyright"></p>
+    
+</div>
 <script>
     // equivalent to $(document).ready()
     // http://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
@@ -40,4 +43,10 @@
             connectionLinkArea.innerHTML = '<a href="/login">Connexion</a>';            
         }
     });
+</script>
+<script>
+    let dateCopyright = new Date().getFullYear();
+    let copyright = `${dateCopyright} © DOligex`;
+    let copy = document.querySelector('.copyright');
+    copy.textContent = copyright;
 </script>
