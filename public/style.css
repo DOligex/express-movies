@@ -1,0 +1,21 @@
+/* source  https://github.com/codeconcept/expressmovies/blob/master/public/style.css */
+
+body {
+    font-family: Consolas,Monaco,"Andale Mono",monospace;
+    background-image: linear-gradient();
+    color: black;
+}
+
+input:focus {
+    background-color: lightgreen;
+}  
+
+.central {
+    min-height: 250px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: darkgrey;
+}

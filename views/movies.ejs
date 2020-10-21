@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Movies</title>
+    <link rel="stylesheet" href="./../public/style.css">
+</head>
+<body>
+    <!-- insertion d'un partial ici le header -->
+    <%- include ('./partials/header') %>
+    <div class="central">
+        
+        <h1><%= title %></h1>
+        
+        <div class="french-movies">
+            <% for(movie of movies) {%>
+                <div><a href="/movie-details/<%= movie._id %>"><%= movie.movietitle %> (<%= movie.movieyear %>)</a></div>
+                <% } %>
+        </div>
+        <br>
+        <!-- formulaire de post de film -->
+        <div>
+            <form action="/movies" method="post">
+                <label for="movietitle">Titre du film</label>
+                <input type="text" name="movietitle" id="movietitle">
+                <label for="movieyear">Année du film</label>
+                <input type="text" name="movieyear" id="movieyear">
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+
+
+    </div>
+        <!-- insertion d'un partial ici le footer -->
+        <%- include ('./partials/footer') %>
+
+        <!-- Pour poster le formulaire sans rafraichir la page on déclre un script et function ci-dessous -->
+        <script>
+            const form = document.querySelector('form');
+            form.addEventListener('submit', addMovie);
+
+            function addMovie(event) {
+                event.preventDefault();
+                // dans le cadre de la compatibilité des navigateurs vérifier si la méthode fetch est supportée
+                if(window.fetch) {
+                    fetch('/movies', {
+                        method: 'POST',
+                        body: new FormData(form)
+                    })
+                    .then(checkStatus)
+                    .catch(function(error) {
+                        console.log(`Request failed due ${error}`);
+                    })
+
+                }
+                else {
+                    // JQuery ou XHR
+                }
+
+            }
+            // On doit vérifier le status de la réponse du serveur
+            function checkStatus(response) {
+                if (response.status >= 200 && response.status < 300) {
+                    // on va créer une insertion du nouveau film dans la vue de notre tableau
+                    let newMovieDiv = document.createElement('div');
+                    const movietitle = document.getElementById('movietitle').value;
+                    const movieyear = document.getElementById('movieyear').value;
+                    newMovieDiv.innerHTML = `${movietitle} (${movieyear})`;
+                    document.querySelector('.french-movies').appendChild(newMovieDiv);
+                    // vidage des champs de formulaire
+                    form.reset();
+                }
+            }
+        </script>
+    </body>
+    </html>
