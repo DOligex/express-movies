@@ -26,14 +26,12 @@ This project was generated with
 	|_movie-search.ejs
 	|_movie.ejs
 |_app.js
+|_config.js
 |_package-lock.json
 |_package.json
 |_README.md
 
-
 ```
-
-
 
 ## Run app commands
 ```ssh
@@ -42,7 +40,31 @@ $ npm run dev
 <!-- in product mode -->
 $ npm run start
 ```
+## Config exemple
 
+ - config.js folder
+  ```js
+  const PORT = 1250 ; // 3000 by default
+  
+  const secret = 'yourLoOoOooOOOoOoooOngSecretArray';
+  
+  const fakeUser = { 
+      email: 'usermail@dom.com',
+      password: 'user-password'
+  };
+  
+  const db = {
+      user: 'your-database-user',
+      password: 'your-database-password'
+  }
+  
+  // exports method
+  exports.secret = secret;
+  exports.fakeUser = fakeUser;
+  exports.PORT = PORT;
+  exports.db = db;
+  
+  ```
 
 ## Template syntax
 
