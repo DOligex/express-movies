@@ -32,7 +32,8 @@ app.set('view engine', 'ejs');
 
 let frenchMovies = [];
 
-app.use('/public', express.static('public'));
+app.use('/public/css', express.static('public/css'));
+
 
 app.use(expressJwt({secret: config.secret, algorithms: ['HS256']}).unless({
     path: ['/', '/login', '/movies', '/movie-search', '/movie-details',
@@ -71,6 +72,7 @@ app.get('/movie-search', movieController.movieSearch);
 //     };
 // });
 
+
 app.get('/login', authController.login);
 
 app.post('/login', urlencodedParser, authController.postLogin);
@@ -80,3 +82,4 @@ app.get('/member-only', authController.getMemberOnly);
 app.listen(config.PORT, () => {
     console.log(`Express server listenning on port ${config.PORT}`);
 });
+
