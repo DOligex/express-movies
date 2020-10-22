@@ -104,6 +104,7 @@ $ npm run start
 |--|--|
 | Git  | [https://git-scm.com/docs/git-remote](https://git-scm.com/docs/git-remote) |
 | MongoDB  | [https://www.mongodb.com/atlas](https://www.mongodb.com/atlas-signup-from-mlab?utm_source=mlab.com&utm_medium=referral&utm_campaign=mlab%20signup&utm_content=blue%20sign%20up%20button) |
+| API TMDb  | [https://www.themoviedb.org](https://www.themoviedb.org/) |
 
 
 | Source  | Documentation| 
